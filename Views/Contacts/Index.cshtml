@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Work_Code.Models.Contact>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Navbar & Hero Start -->
+<div class="container-fluid position-relative p-0">
+    <!-- Header Start -->
+    <div class="container-fluid bg-breadcrumb" style=" background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../Content/front/img/carousel-1.jpg); ">
+        <div class="container text-center py-5" style="max-width: 900px;">
+            <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Index</h4>
+        </div>
+    </div>
+    <!-- Header End -->
+</div>
+<!-- Navbar & Hero End -->
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Your_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Your_Mail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Your_Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Message)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Your_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Your_Mail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Your_Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Message)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>

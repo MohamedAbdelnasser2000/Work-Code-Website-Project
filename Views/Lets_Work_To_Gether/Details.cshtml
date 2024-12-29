@@ -1,0 +1,90 @@
+﻿@model Work_Code.Models.Lets_Work_To_Gether
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Lets_Work_To_Gether</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.P_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.P_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.P_Desciption)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.P_Desciption)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ex_Delivery_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ex_Delivery_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.P_Budget)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.P_Budget)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Your_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Your_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Your_mail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Your_mail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Your_Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Your_Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Your_Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Your_Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Uplode_Requirment_pdf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Uplode_Requirment_pdf)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

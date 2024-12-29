@@ -1,0 +1,194 @@
+﻿@model Work_Code.Models.Lets_Work_To_Gether
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+
+
+
+
+
+
+<!-- Navbar & Hero Start -->
+<div class="container-fluid position-relative p-0">
+    <!-- Header Start -->
+    <div class="container-fluid bg-breadcrumb" style=" background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../Content/front/img/carousel-1.jpg); ">
+        <div class="container text-center py-5" style="max-width: 900px;">
+            <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Let's Work together</h4>
+        </div>
+    </div>
+    <!-- Header End -->
+</div>
+<!-- Navbar & Hero End -->
+<!-- Contact Start -->
+<div class="container-fluid contact py-5">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-xl-6">
+                <div class="wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="bg-light rounded p-5 mb-5">
+                        <h1 class="text-primary mb-4">Would you like to ask for a service?</h1>
+                        <h4>
+                            Just send an application
+                        </h4>
+                    </div>
+
+
+                    <div class="bg-light p-5 rounded h-100 wow fadeInUp" data-wow-delay="0.2s">
+
+                        <img src="~/Content/front/img/aaaaa.png" />
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.2s">
+
+                <div class="bg-light p-5 rounded h-100 wow fadeInUp" data-wow-delay="0.2s">
+                    <h4 class="text-primary">Send Your Message</h4>
+                    @*<form>*@
+
+                    @{ if (TempData["SuccessMessage"] != null)
+                        {
+                            <div class="alert alert-success">
+                                @TempData["SuccessMessage"]
+                            </div> } }
+
+
+                    @using (Html.BeginForm("Create", "Lets_Work_To_Gether", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                <div class="col-md">
+                                    <label for="name">
+                                        Project Name
+                                    </label>
+
+                                    @Html.EditorFor(model => model.P_Name, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.P_Name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md">
+                                    <label for="name">
+                                        Project Description
+                                    </label>
+                                    @Html.TextAreaFor(model => model.P_Desciption, 4, 30, htmlAttributes: new { style = "width:100%; max-width:100%" })
+
+                                    @Html.ValidationMessageFor(model => model.P_Desciption, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md">
+                                    <label for="name">
+                                        Expected Deliver Date
+                                    </label>
+
+                                    @Html.EditorFor(model => model.Ex_Delivery_Date, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Ex_Delivery_Date, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md">
+                                    <label for="name">
+                                        Project Budget
+                                    </label>
+
+                                    @Html.EditorFor(model => model.P_Budget, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.P_Budget, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md">
+                                    <label for="name">
+                                        Your Name
+                                    </label>
+
+                                    @Html.EditorFor(model => model.Your_Name, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Your_Name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md">
+                                    <label for="name">
+                                        Your Email
+                                    </label>
+
+                                    @Html.EditorFor(model => model.Your_mail, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Your_mail, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md">
+                                    <label for="name">
+                                        Your Phone
+                                    </label>
+
+                                    @Html.EditorFor(model => model.Your_Phone, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Your_Phone, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md">
+                                    <label for="name">
+                                        Your Address
+                                    </label>
+
+                                    @Html.EditorFor(model => model.Your_Address, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Your_Address, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md">
+                                    <label for="name">Upload Requirements PDF</label>
+
+                                    <input id="Uplode_Requirment_pdf" title="Upload images" type="file" name="file1" accept="application/pdf"/>
+                                    @*@Html.EditorFor(model => model.Uplode_Requirment_pdf, new { htmlAttributes = new { @class = "form-control" } })*@
+                                    @Html.ValidationMessageFor(model => model.Uplode_Requirment_pdf, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md">
+                                    <button class="btn btn-primary w-100 py-3">Send Message</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+
+
+
+
+
+
+                </div>
+
+
+                @*<div class="rounded h-100">
+                        <iframe class="rounded h-100 w-100"
+                                style="height: 400px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.33750346623!2d-73.97968099999999!3d40.6974881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1694259649153!5m2!1sen!2sbd"
+                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact End -->
+@*@section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@

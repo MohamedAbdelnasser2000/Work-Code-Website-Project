@@ -1,0 +1,99 @@
+﻿@model IEnumerable<Work_Code.Models.Lets_Work_To_Gether>
+
+@{
+    ViewBag.Title = "Index";
+}
+<!-- Navbar & Hero Start -->
+<div class="container-fluid position-relative p-0">
+    <!-- Header Start -->
+    <div class="container-fluid bg-breadcrumb" style=" background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../Content/front/img/carousel-1.jpg); ">
+        <div class="container text-center py-5" style="max-width: 900px;">
+            <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Index</h4>
+        </div>
+    </div>
+    <!-- Header End -->
+</div>
+<!-- Navbar & Hero End -->
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.P_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.P_Desciption)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Delivery_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.P_Budget)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Your_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Your_mail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Your_Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Your_Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Uplode_Requirment_pdf)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.P_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.P_Desciption)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ex_Delivery_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.P_Budget)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Your_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Your_mail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Your_Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Your_Address)
+            </td>
+            <td>
+                <embed src="~/Image/@Url.Content(item.Uplode_Requirment_pdf)" width="100px" height="100px" type="application/pdf" />
+
+                @*@if (!string.IsNullOrWhiteSpace(item.Uplode_Requirment_pdf))
+                    {
+                        <img class="card-img-bottom d-block radius-image-full"
+                             src="~/Image/@Url.Content(item.Uplode_Requirment_pdf)"
+                             height="50"
+                             alt="Card image cap" />
+                    }*@
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>

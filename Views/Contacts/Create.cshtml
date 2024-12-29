@@ -1,0 +1,185 @@
+﻿@model Work_Code.Models.Contact
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- Navbar & Hero Start -->
+<div class="container-fluid position-relative p-0">
+    <!-- Header Start -->
+    <div class="container-fluid bg-breadcrumb" style=" background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../Content/front/img/carousel-1.jpg); ">
+        <div class="container text-center py-5" style="max-width: 900px;">
+            <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Contact Us</h4>
+        </div>
+    </div>
+    <!-- Header End -->
+</div>
+<!-- Navbar & Hero End -->
+
+
+
+
+
+<!-- Contact Start -->
+<div class="container-fluid contact py-5">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-xl-6">
+                <div class="wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="bg-light rounded p-5 mb-5">
+                        <h4 class="text-primary mb-4">Get in Touch</h4>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="contact-add-item">
+                                    <div class="contact-icon text-primary mb-4">
+                                        <i class="fas fa-map-marker-alt fa-2x"></i>
+                                    </div>
+                                    <div>
+                                        <h4>Address</h4>
+                                        <p class="mb-0">28 Ahmed Orabi, Mit Okba, Agouza District, Giza Governorate</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="contact-add-item">
+                                    <div class="contact-icon text-primary mb-4">
+                                        <i class="fas fa-envelope fa-2x"></i>
+                                    </div>
+                                    <div>
+                                        <h4>Mail Us</h4>
+                                        <p class="mb-0">workcode11@gmail.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="contact-add-item">
+                                    <div class="contact-icon text-primary mb-4">
+                                        <i class="fa fa-phone-alt fa-2x"></i>
+                                    </div>
+                                    <div>
+                                        <h4>Telephone</h4>
+                                        <p class="mb-0">(+20) 01001917782</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="contact-add-item">
+                                    <div class="contact-icon text-primary mb-4">
+                                        <i class="fab fa-firefox-browser fa-2x"></i>
+                                    </div>
+                                    <div>
+                                        <h4>
+                                            workcode.net
+                                        </h4>
+                                        <p class="mb-0">(+20) 01001917782</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="bg-light p-5 rounded h-100 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="rounded h-100">
+                            <iframe class="rounded h-100 w-100"
+                                    style="height: 400px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d431.6232702597667!2d31.201253204923496!3d30.065931135499802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458419410a30793%3A0x48ba2080221769b7!2sDiwan%20Al%20Arab%20for%20business%20services!5e0!3m2!1sar!2seg!4v1724200225043!5m2!1sar!2seg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                            @*<iframe class="rounded h-100 w-100"
+                                style="height: 400px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.33750346623!2d-73.97968099999999!3d40.6974881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1694259649153!5m2!1sen!2sbd"
+                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>*@
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.2s">
+
+                <div class="bg-light p-5 rounded h-100 wow fadeInUp" data-wow-delay="0.2s">
+                    <h4 class="text-primary">Send Your Message</h4>
+                    @*<form>*@
+
+                    @{ if (TempData["SuccessMessage"] != null)
+                        {
+                            <div class="alert alert-success">
+                                @TempData["SuccessMessage"]
+                            </div> } }
+
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form g-4">
+
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <label for="name">Your Name</label>
+                                    @Html.EditorFor(model => model.Your_Name, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Your_Name, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <label for="name">Your Mail</label>
+                                    @Html.EditorFor(model => model.Your_Mail, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Your_Mail, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <label for="name">Your Phone</label>
+                                    @Html.EditorFor(model => model.Your_Phone, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Your_Phone, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <label for="name"> Message</label>
+                                    @Html.TextAreaFor(model => model.Message, 10, 30, htmlAttributes: new { style = "width:100%; max-width:100%" })
+                                    @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-12">
+                                    <button class="btn btn-primary w-100 py-3">Send Message</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+
+
+
+
+
+
+                </div>
+
+
+                @*<div class="rounded h-100">
+                        <iframe class="rounded h-100 w-100"
+                                style="height: 400px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.33750346623!2d-73.97968099999999!3d40.6974881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1694259649153!5m2!1sen!2sbd"
+                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact End -->
+@*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+
+@*@section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@
